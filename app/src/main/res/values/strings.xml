@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Medgency</string>
+    <string name="app_desc">Medgency memberikan kemudahan membuat antrian di rumah sakit, klinik atau dokter favorit kalian.</string>
+    <string name="NamaDepan">Nama Depan</string>
+    <string name="NamaBelakang">Nama Belakang</string>
+    <string name="JenisKelamin">Jenis Kelamin</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="BlmDiSet">Belum di set</string>
+    <string name="HospitalDesc">500+ Rumah\nsakit tersedia</string>
+    <string name="DoctorDesc">500+ Dokter\ntersedia</string>
+    <string name="ClinicDesc">500+ Klinik\ntersedia</string>
+    <string name="AmbulanceDesc">24 jam\nambulans siaga</string>
+</resources>

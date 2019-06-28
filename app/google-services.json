@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "190324248508",
+    "firebase_url": "https://medgency.firebaseio.com",
+    "project_id": "medgency",
+    "storage_bucket": "medgency.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190324248508:android:b15f30e509569af8",
+        "android_client_info": {
+          "package_name": "com.example.medgency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190324248508-av7g09k82sh5s0a74satf0qvqfv96uai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medgency",
+            "certificate_hash": "e684aa475c6d766ba117d9a56f7da8fed2ca2900"
+          }
+        },
+        {
+          "client_id": "190324248508-afrau9b0qq3mr58r4df40vppcr85r0c0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkKfII_a9sewXnXajyU2AJzZDSRva0C8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190324248508-afrau9b0qq3mr58r4df40vppcr85r0c0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
