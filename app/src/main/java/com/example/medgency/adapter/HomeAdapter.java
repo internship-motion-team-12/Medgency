@@ -13,13 +13,10 @@ import com.example.medgency.model.Bacaan;
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.BacaanViewHolder> {
-    Bacaan bacaan = new Bacaan("Lakukan Ini Agar Hidup Anda Bahagia1","Detik");
-    Bacaan bacaan1 = new Bacaan("Lakukan Ini Agar Hidup Anda Bahagia2","Kompas");
-    private ArrayList<Bacaan> dataList = new ArrayList<Bacaan>();
+    private ArrayList<Bacaan> dataList;
 
-    public void setDataList() {
-        dataList.add(bacaan);
-        dataList.add(bacaan1);
+    public HomeAdapter(ArrayList<Bacaan> dataList) {
+        this.dataList = dataList;
     }
 
     @NonNull
@@ -32,9 +29,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.BacaanViewHold
 
     @Override
     public void onBindViewHolder(@NonNull HomeAdapter.BacaanViewHolder holder, int position) {
-        Bacaan bacaan3 = dataList.get(position);
-        holder.TVJudulBacaan.setText(bacaan3.getJudul());
-        holder.TVPublisher.setText(bacaan3.getPublisher());
+        holder.TVJudulBacaan.setText(dataList.get(position).getJudul());
+        holder.TVPublisher.setText(dataList.get(position).getPublisher());
     }
 
     @Override

@@ -18,6 +18,9 @@ import android.widget.TextView;
 
 import com.example.medgency.adapter.HomeAdapter;
 import com.example.medgency.adapter.ViewPagerAdapter;
+import com.example.medgency.model.Bacaan;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
     private CardView CV_RS;
@@ -30,8 +33,9 @@ public class HomeActivity extends AppCompatActivity {
     private LinearLayout sliderDotspanel;
     private int dotscount;
     private ImageView[] dots;
-    //private RecyclerView recyclerView;
-    //private HomeAdapter homeAdapter;
+    private ArrayList<Bacaan> ArrayListBacaan;
+    private RecyclerView recyclerView;
+    private HomeAdapter homeAdapter;
     Runnable runnable = new Runnable() {
         public void run() {
             if (viewPagerAdapter.getCount() == page) {
@@ -47,13 +51,14 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        /*
+
+        addDataBacaan();
         recyclerView = findViewById(R.id.RecyclerViewArticleHome);
-        homeAdapter = new HomeAdapter();
+        homeAdapter = new HomeAdapter(ArrayListBacaan);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(HomeActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(homeAdapter);
-        */
+
         viewPagerAdapter = new ViewPagerAdapter(this);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
@@ -126,6 +131,12 @@ public class HomeActivity extends AppCompatActivity {
     private void RunActivitySearchRS() {
         Intent i = new Intent(this,SearchRS.class);
         startActivity(i);
+    }
+
+    void addDataBacaan(){
+        ArrayListBacaan = new ArrayList<>();
+        ArrayListBacaan.add(new Bacaan("Judul 1", "publisher"));
+        ArrayListBacaan.add(new Bacaan("Judul 2", "publisher"));
     }
 
     @Override
