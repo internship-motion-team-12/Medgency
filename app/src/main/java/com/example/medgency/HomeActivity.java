@@ -7,6 +7,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.medgency.adapter.HomeAdapter;
 import com.example.medgency.adapter.ViewPagerAdapter;
 
 public class HomeActivity extends AppCompatActivity {
@@ -27,7 +30,8 @@ public class HomeActivity extends AppCompatActivity {
     private LinearLayout sliderDotspanel;
     private int dotscount;
     private ImageView[] dots;
-
+    //private RecyclerView recyclerView;
+    //private HomeAdapter homeAdapter;
     Runnable runnable = new Runnable() {
         public void run() {
             if (viewPagerAdapter.getCount() == page) {
@@ -43,7 +47,13 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        /*
+        recyclerView = findViewById(R.id.RecyclerViewArticleHome);
+        homeAdapter = new HomeAdapter();
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(HomeActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(homeAdapter);
+        */
         viewPagerAdapter = new ViewPagerAdapter(this);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
@@ -57,14 +67,17 @@ public class HomeActivity extends AppCompatActivity {
         for(int i = 0; i < dotscount; i++){
 
             dots[i] = new ImageView(this);
-            dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.non_active_dot));
-
+            if (i == 0){
+                dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.active_dot));
+            }
+            else{
+                dots[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.non_active_dot));
+            }
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
             params.setMargins(8, 0, 8, 0);
 
             sliderDotspanel.addView(dots[i], params);
-
         }
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
