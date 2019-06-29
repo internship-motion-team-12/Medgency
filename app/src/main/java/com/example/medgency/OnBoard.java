@@ -70,6 +70,7 @@ public class OnBoard extends AppCompatActivity {
     private void RunActivityLogin() {
         Intent i = new Intent(this,SignIn.class);
         startActivity(i);
+        finish();
     }
 
     private void RunActivitySignUp(){

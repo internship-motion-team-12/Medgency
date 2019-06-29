@@ -2,6 +2,7 @@ package com.example.medgency;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.preference.EditTextPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.medgency.model.User;
 
@@ -97,7 +99,18 @@ public class SignIn extends AppCompatActivity {
     }
 
     private void MakeWarningToast() {
-        // coming soon
+        if (ETEmail.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Isi alamat email",Toast.LENGTH_SHORT).show();
+        }
+        else if (ETpassword.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Isi password anda",Toast.LENGTH_SHORT).show();
+        }
+        else if (!isValidEmail(ETEmail.getText().toString())){
+            Toast.makeText(getApplicationContext(),"Email is incorrect",Toast.LENGTH_SHORT).show();
+        }
+        else if (!isValidPassword(ETpassword.getText().toString())){
+            Toast.makeText(getApplicationContext(),"Password is incorrect",Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void RunMainActivity(User user) {

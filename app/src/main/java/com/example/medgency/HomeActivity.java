@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.medgency.adapter.HomeAdapter;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
     private CardView CV_RS;
+    private ScrollView scrollViewHome;
     private TextView toolbar_text;
     private ViewPager viewPager;
     private Handler handler;
@@ -51,6 +53,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        scrollViewHome = findViewById(R.id.scrollViewHome);
+        scrollViewHome.setScrollY(0);
 
         addDataBacaan();
         recyclerView = findViewById(R.id.RecyclerViewArticleHome);
