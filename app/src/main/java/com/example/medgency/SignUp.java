@@ -98,6 +98,9 @@ public class SignUp extends AppCompatActivity {
         else if (ETNamBel.getText().toString().isEmpty()){
             Toast.makeText(this,"Nama belakang belum diisi",Toast.LENGTH_SHORT).show();
         }
+        else{
+            Toast.makeText(this,"Nama tidak boleh mengandung angka",Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void RunActivitySignUpEmail(User user) {

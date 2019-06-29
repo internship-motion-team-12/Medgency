@@ -1,7 +1,9 @@
 package com.example.medgency;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
@@ -13,6 +15,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.medgency.model.User;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class SignUpEmail extends AppCompatActivity {
     private TextView TV1,TV2;
@@ -20,6 +29,10 @@ public class SignUpEmail extends AppCompatActivity {
     private Button mButton;
     private ImageView PasswordToggle, LineToVisibleGone;
     private User user = new User ("Belum di assign","Belum di assign","Belum di assign");
+
+    DatabaseReference reference;
+
+    String email_key = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +68,7 @@ public class SignUpEmail extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RunOnBoardActivity(user);
+                RunHomeActivity(user);
             }
         });
 
@@ -79,16 +92,43 @@ public class SignUpEmail extends AppCompatActivity {
         });
     }
 
-    private void RunOnBoardActivity(User user) {
+    private void RunHomeActivity(User user) {
         Intent i = new Intent(this, HomeActivity.class);
         user.setEmail(ETEmail.getText().toString());
         user.setPassword(ETPassword.getText().toString());
+        final User user2 = user;
         i.putExtra(getString(R.string.NamaDepan),user.getNamaDepan());
         i.putExtra(getString(R.string.NamaBelakang),user.getNamaBelakang());
         i.putExtra(getString(R.string.email),user.getEmail());
         i.putExtra(getString(R.string.password),user.getPassword());
         i.putExtra(getString(R.string.JenisKelamin),user.getJenisKelamin());
         i.putExtra("Status","Destroy");
+
+        // menyimpan data kepada local storage (handphone)
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.email), MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(email_key,user2.getEmail());
+        editor.apply();
+
+        //menyimpan pada firebase
+        reference = FirebaseDatabase.getInstance().getReference().child("users").child(user2.getNamaDepan());
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                dataSnapshot.getRef().child(getString(R.string.NamaDepan)).setValue(user2.getNamaDepan());
+                dataSnapshot.getRef().child(getString(R.string.NamaBelakang)).setValue(user2.getNamaBelakang());
+                dataSnapshot.getRef().child(getString(R.string.JenisKelamin)).setValue(user2.getJenisKelamin());
+                dataSnapshot.getRef().child(getString(R.string.email)).setValue(user2.getEmail());
+                dataSnapshot.getRef().child(getString(R.string.password)).setValue(user2.getPassword());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         startActivity(i);
         finish();
     }
