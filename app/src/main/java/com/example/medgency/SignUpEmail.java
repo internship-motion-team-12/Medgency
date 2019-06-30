@@ -30,6 +30,8 @@ public class SignUpEmail extends AppCompatActivity {
     private Button mButton;
     private ImageView PasswordToggle, LineToVisibleGone;
     private User user = new User ("Belum di assign","Belum di assign","Belum di assign");
+    private TextView WarningEmail,WarningPassword;
+    ImageView LogoWarningEmail,LogoWarningPassword;
 
     DatabaseReference reference;
 
@@ -59,6 +61,15 @@ public class SignUpEmail extends AppCompatActivity {
         PasswordToggle = findViewById(R.id.PasswordToggle);
         ETPassword = findViewById(R.id.ETPassword);
         ETEmail = findViewById(R.id.ETEmail);
+        WarningEmail = findViewById(R.id.WarningEmail);
+        WarningPassword = findViewById(R.id.WarningPassword);
+        LogoWarningEmail = findViewById(R.id.LogoWarningEmail);
+        LogoWarningPassword = findViewById(R.id.LogoWarningPassword);
+
+        WarningEmail.setText("");
+        WarningPassword.setText("");
+        LogoWarningEmail.setVisibility(View.GONE);
+        LogoWarningPassword.setVisibility(View.GONE);
 
         Typeface mTF = Typeface.createFromAsset(getAssets(),"font/NunitoSans-Regular.ttf");
 
@@ -105,17 +116,17 @@ public class SignUpEmail extends AppCompatActivity {
         i.putExtra(getString(R.string.JenisKelamin),user.getJenisKelamin());
         i.putExtra("Status","Destroy");
 
-        String user_id = EmailToUsername(user.getEmail());
+        String user_id = ConvertEmailToID(user.getEmail());
         Toast.makeText(getApplicationContext(),user_id,Toast.LENGTH_LONG).show();
 
         // menyimpan data kepada local storage (hand phone)
-        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.email), MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("id", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(email_key,user_id);
         editor.apply();
 
         //menyimpan pada firebase
-        reference = FirebaseDatabase.getInstance().getReference().child("users").child(user2.getNamaDepan());
+        reference = FirebaseDatabase.getInstance().getReference().child("users").child(user_id);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -137,15 +148,17 @@ public class SignUpEmail extends AppCompatActivity {
         finish();
     }
 
-    private String EmailToUsername(String email){
-        int nCharacter = email.length();
-        int i = nCharacter - 1;
+    private static String ConvertEmailToID(String email){
+        int jmlh = email.length();
+        int i = jmlh - 1;
+        char temp = email.charAt(i);
         while (i > 0){
-            if (Character.toString(email.charAt(i)) == "."){
+            temp = email.charAt(i);
+            if (temp ==  '.'){
                 break;
             }
             i--;
         }
-        return /*email.substring(0,i) +*/ "-" + email.substring(i+1,email.length());
+        return email.substring(0,i) + "-" + email.substring(i+1,email.length());
     }
 }

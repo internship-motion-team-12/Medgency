@@ -78,6 +78,7 @@
         android:textSize="12sp" />
 
     <ImageView
+        android:id="@+id/LogoWarningEmail"
         android:layout_width="17dp"
         android:layout_height="15dp"
         android:layout_marginLeft="2dp"
@@ -142,6 +143,7 @@
         android:textSize="12sp" />
 
     <ImageView
+        android:id="@+id/LogoWarningPassword"
         android:layout_width="17dp"
         android:layout_height="15dp"
         android:background="#F44336"

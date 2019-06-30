@@ -1,8 +1,10 @@
 package com.example.medgency;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.EditTextPreference;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.medgency.model.User;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,6 +33,12 @@ public class SignIn extends AppCompatActivity {
     private EditText ETpassword,ETEmail;
     private ImageView PasswordToggle, LineToVisibleGone;
     private User user;
+    private TextView WarningEmailSignIn, WarningPasswordLogin;
+    private ImageView LogoWarningEmailLogin,LogoWarningPasswordLogin;
+
+    DatabaseReference reference;
+
+    String username_key = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +59,15 @@ public class SignIn extends AppCompatActivity {
         ETpassword = findViewById(R.id.ETPasswordLogin);
         mButton = findViewById(R.id.ButtonLogin);
         LineToVisibleGone = findViewById(R.id.LineToVisibleGone);
+        WarningEmailSignIn = findViewById(R.id.WarningEmailSignIn);
+        WarningPasswordLogin = findViewById(R.id.WarningPasswordLogin);
+        LogoWarningEmailLogin = findViewById(R.id.LogoWarningEmailLogin);
+        LogoWarningPasswordLogin = findViewById(R.id.LogoWarningPasswordLogin);
+
+        WarningEmailSignIn.setText("");
+        WarningPasswordLogin.setText("");
+        LogoWarningEmailLogin.setVisibility(View.GONE);
+        LogoWarningPasswordLogin.setVisibility(View.GONE);
 
         LineToVisibleGone.setVisibility(View.VISIBLE);
         ETpassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD); //to hide
@@ -115,16 +137,41 @@ public class SignIn extends AppCompatActivity {
 
     private void RunMainActivity(User user) {
         if (isValidEmail(ETEmail.getText().toString()) && isValidPassword(ETpassword.getText().toString())){
-            Intent i = new Intent(this, HomeActivity.class);
-            /*
-            i.putExtra(getString(R.string.NamaDepan),user.getNamaDepan());
-            i.putExtra(getString(R.string.NamaBelakang),user.getNamaBelakang());
-            i.putExtra(getString(R.string.email),user.getEmail());
-            i.putExtra(getString(R.string.password),user.getPassword());
-            i.putExtra(getString(R.string.JenisKelamin),user.getJenisKelamin());
-            */
-            startActivity(i);
-            finish();
+            reference = FirebaseDatabase.getInstance().getReference().child("users").child(ConvertEmailToID(ETEmail.getText().toString()));
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()){ //jika id ditemukan
+                        //ambil data password dari firebase
+                        String passwordFromFirebase = dataSnapshot.child("password").getValue().toString();
+
+                        if (ETpassword.getText().toString().equals(passwordFromFirebase)){ //cek validasi password
+                            //simpan username
+                            // menyimpan data kepada local storage (handphone)
+                            String user_id = ConvertEmailToID(ETEmail.getText().toString());
+                            SharedPreferences sharedPreferences = getSharedPreferences("id", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString(username_key,user_id);
+                            editor.apply();
+
+                            Intent gotohome = new Intent(SignIn.this,HomeActivity.class);
+                            startActivity(gotohome);
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"password salah",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else{ // jika id tidak ditemukan
+                        Toast.makeText(getApplicationContext(),"Email tidak ditemukan",Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
         else{
             MakeWarningToast();
@@ -150,5 +197,19 @@ public class SignIn extends AppCompatActivity {
         Pattern P = Pattern.compile("[0-9]");
         Matcher m = P.matcher(string);
         return m.find();
+    }
+
+    private static String ConvertEmailToID(String email){
+        int jmlh = email.length();
+        int i = jmlh - 1;
+        char temp = email.charAt(i);
+        while (i > 0){
+            temp = email.charAt(i);
+            if (temp ==  '.'){
+                break;
+            }
+            i--;
+        }
+        return email.substring(0,i) + "-" + email.substring(i+1,email.length());
     }
 }

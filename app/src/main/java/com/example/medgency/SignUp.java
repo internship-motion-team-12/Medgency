@@ -25,7 +25,8 @@ public class SignUp extends AppCompatActivity {
     private EditText ETNamDep, ETNamBel;
     private String JnsKelamin;
     private Button mButton;
-    private ImageView IVPria, IVWanita;
+    private ImageView IVPria, IVWanita,LogoWarningDepan, LogoWarningBelakang;
+    TextView WarningDepan, WarningBelakang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,15 @@ public class SignUp extends AppCompatActivity {
         JnsKelamin = getString(R.string.BlmDiSet);
         IVPria = findViewById(R.id.IVPria);
         IVWanita = findViewById(R.id.IVWanita);
+        WarningDepan = findViewById(R.id.WarningDepan);
+        LogoWarningDepan = findViewById(R.id.LogoWarningDepan);
+        WarningBelakang = findViewById(R.id.WarningBelakang);
+        LogoWarningBelakang = findViewById(R.id.LogoWarningBelakang);
+
+        WarningDepan.setText("");
+        LogoWarningDepan.setVisibility(View.GONE);
+        WarningBelakang.setText("");
+        LogoWarningBelakang.setVisibility(View.GONE);
 
         Typeface mTF = Typeface.createFromAsset(getAssets(),"font/NunitoSans-Regular.ttf");
 

@@ -74,6 +74,7 @@
         android:textSize="12sp" />
 
     <ImageView
+        android:id="@+id/LogoWarningDepan"
         android:layout_width="17dp"
         android:layout_height="15dp"
         android:layout_marginLeft="2dp"
@@ -105,6 +106,7 @@
         android:textSize="12sp" />
 
     <ImageView
+        android:id="@+id/LogoWarningBelakang"
         android:layout_width="17dp"
         android:layout_height="15dp"
         android:background="#F44336"
