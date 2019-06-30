@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.medgency.model.User;
 import com.google.firebase.database.DataSnapshot;
@@ -104,10 +105,13 @@ public class SignUpEmail extends AppCompatActivity {
         i.putExtra(getString(R.string.JenisKelamin),user.getJenisKelamin());
         i.putExtra("Status","Destroy");
 
-        // menyimpan data kepada local storage (handphone)
+        String user_id = EmailToUsername(user.getEmail());
+        Toast.makeText(getApplicationContext(),user_id,Toast.LENGTH_LONG).show();
+
+        // menyimpan data kepada local storage (hand phone)
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.email), MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(email_key,user2.getEmail());
+        editor.putString(email_key,user_id);
         editor.apply();
 
         //menyimpan pada firebase
@@ -131,5 +135,17 @@ public class SignUpEmail extends AppCompatActivity {
 
         startActivity(i);
         finish();
+    }
+
+    private String EmailToUsername(String email){
+        int nCharacter = email.length();
+        int i = nCharacter - 1;
+        while (i > 0){
+            if (Character.toString(email.charAt(i)) == "."){
+                break;
+            }
+            i--;
+        }
+        return /*email.substring(0,i) +*/ "-" + email.substring(i+1,email.length());
     }
 }
