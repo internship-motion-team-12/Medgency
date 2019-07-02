@@ -8,4 +8,7 @@
     <color name="black">#000000</color>
     <color name="blackBold">#25282B</color>
     <color name="blackThin">#52575C</color>
+    <color name="blue700primary">#006EFD</color>
+    <color name="ActiveDotIndicator">#88C9FF</color>
+    <color name="NonActiveDotIndicator">#CACCCF</color>
 </resources>

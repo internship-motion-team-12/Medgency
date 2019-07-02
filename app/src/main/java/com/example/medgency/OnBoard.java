@@ -56,7 +56,7 @@ public class OnBoard extends AppCompatActivity {
     }
 
     private void RunMainActivity(User user) {
-        Intent i = new Intent(this, HomeActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         i.putExtra(getString(R.string.NamaDepan),user.getNamaDepan());
         i.putExtra(getString(R.string.NamaBelakang),user.getNamaBelakang());
         i.putExtra(getString(R.string.email),user.getEmail());

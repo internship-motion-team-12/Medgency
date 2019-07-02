@@ -30,18 +30,18 @@
         <activity
             android:name=".SearchRS"
             android:label="Rumah Sakit"
-            android:parentActivityName=".HomeActivity">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.HomeActivity" />
+                android:value="com.example.medgency.MainActivity" />
         </activity>
         <activity
             android:name=".SearchDokter"
             android:label="Dokter"
-            android:parentActivityName=".HomeActivity">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.HomeActivity" />
+                android:value="com.example.medgency.MainActivity" />
         </activity>
         <activity
             android:name=".SignIn"
@@ -76,7 +76,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

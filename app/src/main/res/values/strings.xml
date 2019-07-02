@@ -11,4 +11,7 @@
     <string name="DoctorDesc">500+ Dokter\ntersedia</string>
     <string name="ClinicDesc">500+ Klinik\ntersedia</string>
     <string name="AmbulanceDesc">24 jam\nambulans siaga</string>
+    <string name="Home">Home</string>
+    <string name="JadwalSaya">Jadwal Saya</string>
+    <string name="Profil">Profil</string>
 </resources>

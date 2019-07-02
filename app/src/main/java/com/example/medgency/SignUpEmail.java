@@ -21,8 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 public class SignUpEmail extends AppCompatActivity {
     private TextView TV1,TV2;
@@ -105,7 +103,7 @@ public class SignUpEmail extends AppCompatActivity {
     }
 
     private void RunHomeActivity(User user) {
-        Intent i = new Intent(this, HomeActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         user.setEmail(ETEmail.getText().toString());
         user.setPassword(ETPassword.getText().toString());
         final User user2 = user;
