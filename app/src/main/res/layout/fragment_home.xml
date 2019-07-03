@@ -313,18 +313,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/TVBacaanMenarikHome">
 
             </android.support.v7.widget.RecyclerView>
-
-            <TextView
-                android:id="@+id/TVJenisPasien"
-                android:layout_width="wrap_content"
-                android:layout_height="21dp"
-                android:layout_marginTop="200dp"
-                android:text="Jenis Pasien"
-                android:textSize="15sp"
-                android:textColor="@color/blackBold"
-                android:lineHeight="20dp"
-                app:layout_constraintTop_toBottomOf="@id/RecyclerViewArticleHome"
-                app:layout_constraintStart_toStartOf="parent"/>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

@@ -43,7 +43,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class HomeFragment extends Fragment {
     Handler h = new Handler();
-    RecyclerView mRecyclerView;
+    RecyclerView recyclerView;
     private Toolbar mToolbar;
     private ArrayList<Bacaan> ArrayListBacaan;
     TextView toolbar_text;
@@ -63,15 +63,38 @@ public class HomeFragment extends Fragment {
     public String publisher;
     public String uri;
 
-    SharedPreferences sharedPreferencesJudul;
-    SharedPreferences sharedPreferencesPublisher;
+    ArrayList<Bacaan> list;
+    HomeAdapter homeAdapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        addDataBacaan();
         final Context context = getActivity();
+        recyclerView = view.findViewById(R.id.RecyclerViewArticleHome);
+
+
+        reference = FirebaseDatabase.getInstance().getReference().child("Bacaan").child("Menarik");
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list = new ArrayList<Bacaan>();
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                    Bacaan p = dataSnapshot1.getValue(Bacaan.class);
+                    list.add(p);
+                }
+                homeAdapter = new HomeAdapter(getContext(),list);
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
+                recyclerView.setLayoutManager(layoutManager);
+                recyclerView.setAdapter(homeAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         cardView = view.findViewById(R.id.CVRumahSakit);
         cardView.setOnClickListener(new View.OnClickListener() {
@@ -161,91 +184,6 @@ public class HomeFragment extends Fragment {
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayShowTitleEnabled(false);
         toolbar_text = view.findViewById(R.id.toolbar_text);
         toolbar_text.setText("Medgency");
-
-        // Replace 'android.R.id.list' with the 'id' of your RecyclerView
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.RecyclerViewArticleHome);
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
-        Log.d("debugMode", "The application stopped after this");
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        HomeAdapter mAdapter = new HomeAdapter(ArrayListBacaan);
-        mRecyclerView.setAdapter(mAdapter);
         return view;
-    }
-    void addDataBacaan(){
-        ArrayListBacaan = new ArrayList<>();
-        final Bacaan bacaan1 = new Bacaan("h","h","h");
-        ///*
-        reference = FirebaseDatabase.getInstance().getReference().child("Bacaan").child("Menarik").child("satu");
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                bacaan1.setJudul(dataSnapshot.child("judul").getValue().toString());
-                bacaan1.setPublisher(dataSnapshot.child("publisher").getValue().toString());
-
-                // menyimpan data judul kepada local storage (handphone)
-                SharedPreferences mTitle = getActivity().getSharedPreferences("TITLE", MODE_PRIVATE);
-                SharedPreferences.Editor editor = mTitle.edit();
-                editor.putString("title",dataSnapshot.child("judul").getValue().toString());
-                editor.apply();
-
-                // menyimpan data kepada local storage (handphone)
-                SharedPreferences mPublisher = getActivity().getSharedPreferences("PUBLISHER", MODE_PRIVATE);
-                SharedPreferences.Editor editor2 = mPublisher.edit();
-                editor2.putString("publish",dataSnapshot.child("publisher").getValue().toString());
-                editor2.apply();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        getTitleLocal();
-        getPublisherLocal();
-
-        ArrayListBacaan.add(new Bacaan(judul, publisher));
-
-        reference = FirebaseDatabase.getInstance().getReference().child("Bacaan").child("Menarik").child("dua");
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                bacaan1.setJudul(dataSnapshot.child("judul").getValue().toString());
-                bacaan1.setPublisher(dataSnapshot.child("publisher").getValue().toString());
-
-                // menyimpan data judul kepada local storage (handphone)
-                SharedPreferences mTitle = getActivity().getSharedPreferences("TITLE", MODE_PRIVATE);
-                SharedPreferences.Editor editor = mTitle.edit();
-                editor.putString("title",dataSnapshot.child("judul").getValue().toString());
-                editor.apply();
-
-                // menyimpan data kepada local storage (handphone)
-                SharedPreferences mPublisher = getActivity().getSharedPreferences("PUBLISHER", MODE_PRIVATE);
-                SharedPreferences.Editor editor2 = mPublisher.edit();
-                editor2.putString("publish",dataSnapshot.child("publisher").getValue().toString());
-                editor2.apply();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        getTitleLocal();
-        getPublisherLocal();
-        ArrayListBacaan.add(new Bacaan(judul, publisher));
-        // ArrayListBacaan.add(new Bacaan("Judul 1", "publisher","url-1"));
-        //ArrayListBacaan.add(new Bacaan("Judul 2", "publisher","url-2"));
-    }
-
-    public void getTitleLocal(){
-        SharedPreferences mTitle = getActivity().getSharedPreferences("TITLE", MODE_PRIVATE);
-        judul = mTitle.getString("title","");
-    }
-
-    public void getPublisherLocal(){
-        SharedPreferences mPublisher = getActivity().getSharedPreferences("PUBLISHER", MODE_PRIVATE);
-        judul = mPublisher.getString("publish","");
     }
 }
