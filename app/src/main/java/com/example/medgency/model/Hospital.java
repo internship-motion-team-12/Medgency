@@ -7,14 +7,17 @@ public class Hospital {
     private String deskripsi;
     private String HospitalType; // Bersalin, jiwa, umum
     private HospitalContact mHospitalContact;
+    private String url_profil;
+    private String url_alamat;
 
-    public Hospital() {
-    }
-
-    public Hospital(String nama, String shortAddress, String hospitalType) {
+    public Hospital(String nama, String shortAddress, String hospitalType, String url_profil) {
         this.nama = nama;
         ShortAddress = shortAddress;
         HospitalType = hospitalType;
+        this.url_profil = url_profil;
+    }
+
+    public Hospital() {
     }
 
     public String getNama() {
@@ -63,5 +66,21 @@ public class Hospital {
 
     public void setmHospitalContact(HospitalContact mHospitalContact) {
         this.mHospitalContact = mHospitalContact;
+    }
+
+    public String getUrl_profil() {
+        return url_profil;
+    }
+
+    public void setUrl_profil(String url_profil) {
+        this.url_profil = url_profil;
+    }
+
+    public String getUrl_alamat() {
+        return url_alamat;
+    }
+
+    public void setUrl_alamat(String url_alamat) {
+        this.url_alamat = url_alamat;
     }
 }

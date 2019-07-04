@@ -1,25 +1,33 @@
 package com.example.medgency.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.AdaptiveIconDrawable;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.example.medgency.ProfilRS;
 import com.example.medgency.R;
 import com.example.medgency.model.Hospital;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class SearchRSActAdapter extends RecyclerView.Adapter<SearchRSActAdapter.HospitalViewHolder> {
     private ArrayList<Hospital> dataList;
     private LayoutInflater mInflater;
+    private Context context;
     //private ItemClickListener mClickListener;
 
-    public SearchRSActAdapter (ArrayList<Hospital> dataList){
+    public SearchRSActAdapter (Context context, ArrayList<Hospital> dataList){
+        this.context = context;
         this.dataList = dataList;
     }
 
@@ -32,8 +40,23 @@ public class SearchRSActAdapter extends RecyclerView.Adapter<SearchRSActAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HospitalViewHolder hospitalViewHolder, int position) {
+    public void onBindViewHolder(@NonNull HospitalViewHolder holder, int i) {
+        holder.TVNamaRS_RecyclerView.setText(dataList.get(i).getNama());
+        holder.TVJenisRS.setText(dataList.get(i).getHospitalType());
+        holder.TVAddress.setText(dataList.get(i).getShortAddress());
+        Picasso.with(context).load(dataList.get(i).getUrl_profil()).fit().into(holder.IVPhoto_profile_RS);
 
+        final String nama_rs = dataList.get(i).getNama();
+        final String url_map = dataList.get(i).getUrl_alamat();
+        holder.CVRecyclerViewSearchRS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotoProfilRS = new Intent(context, ProfilRS.class);
+                gotoProfilRS.putExtra("nama",nama_rs);
+                gotoProfilRS.putExtra("url_map",url_map);
+                context.startActivity(gotoProfilRS);
+            }
+        });
     }
 
     @Override
@@ -43,12 +66,15 @@ public class SearchRSActAdapter extends RecyclerView.Adapter<SearchRSActAdapter.
 
     public class HospitalViewHolder extends RecyclerView.ViewHolder {
         TextView TVNamaRS_RecyclerView, TVJenisRS, TVAddress;
-
+        ImageView IVPhoto_profile_RS;
+        CardView CVRecyclerViewSearchRS;
         public HospitalViewHolder(@NonNull View itemView) {
             super(itemView);
             TVNamaRS_RecyclerView = itemView.findViewById(R.id.TVNamaRS_RecyclerView);
             TVJenisRS = itemView.findViewById(R.id.TVJenisRS);
             TVAddress = itemView.findViewById(R.id.TVAddress);
+            IVPhoto_profile_RS = itemView.findViewById(R.id.IVPhoto_profile_RS);
+            CVRecyclerViewSearchRS = itemView.findViewById(R.id.CVRecyclerViewSearchRS);
         }
     }
 }

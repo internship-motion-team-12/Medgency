@@ -41,17 +41,6 @@
                 android:layout_marginBottom="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/ToolbarHome" />
 
-            <!--
-            <LinearLayout
-                android:id="@+id/SliderDots"
-                android:layout_below="@+id/viewPager"
-                android:orientation="horizontal"
-                android:gravity="center_vertical|center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                app:layout_constraintTop_toBottomOf="@+id/viewPager"/>
-             -->
-
             <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
                 android:id="@+id/dots_indicator"
                 android:layout_width="wrap_content"

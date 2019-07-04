@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.medgency.OnBoard;
 import com.example.medgency.R;
 import com.example.medgency.RoundedCornersTransformation;
 import com.example.medgency.model.Bacaan;
@@ -22,10 +21,6 @@ import java.util.ArrayList;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.BacaanViewHolder> {
     private ArrayList<Bacaan> dataList;
     public Context context;
-
-    public HomeAdapter(ArrayList<Bacaan> dataList) {
-        this.dataList = dataList;
-    }
 
     public HomeAdapter(Context context, ArrayList<Bacaan> dataList){
         this.context = context;

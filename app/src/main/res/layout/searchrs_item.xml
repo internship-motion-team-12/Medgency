@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/CVRecyclerViewSearchRS"
     android:layout_width="match_parent"
     android:layout_height="251dp"
     app:cardCornerRadius="8dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="251dp">
         <ImageView
             android:id="@+id/IVPhoto_profile_RS"
             android:layout_width="match_parent"

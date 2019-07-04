@@ -36,4 +36,5 @@ dependencies {
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'jp.wasabeef:picasso-transformations:2.2.1'
+    implementation 'com.androidkun:XTabLayout:1.1.4'
 }

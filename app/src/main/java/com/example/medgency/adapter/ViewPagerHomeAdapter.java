@@ -11,13 +11,13 @@ import android.widget.ImageView;
 
 import com.example.medgency.R;
 
-public class ViewPagerAdapter extends PagerAdapter {
+public class ViewPagerHomeAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
     private Integer [] images = {R.drawable.caraouselattemptone,R.drawable.caraouselattempttwo, R.drawable.caraouselattemptone,R.drawable.caraouselattempttwo, R.drawable.caraouselattemptone,R.drawable.caraouselattempttwo};
 
-    public ViewPagerAdapter(Context context) {
+    public ViewPagerHomeAdapter(Context context) {
         this.context = context;
     }
 

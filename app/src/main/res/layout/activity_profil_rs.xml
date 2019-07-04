@@ -46,6 +46,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/IVRS" />
 
             <LinearLayout
+                android:id="@+id/LLAddressActProfilRS"
                 android:layout_width="wrap_content"
                 android:layout_height="17dp"
                 android:layout_marginLeft="19.5dp"
@@ -73,6 +74,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/IVToGoogleMaps"
                 android:layout_width="49dp"
                 android:layout_height="49dp"
                 android:layout_marginTop="177.5dp"
@@ -80,6 +82,30 @@
                 android:src="@drawable/btn_location"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.androidkun.xtablayout.XTabLayout
+                android:id="@+id/XTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="16.85dp"
+                android:elevation="1dp"
+                app:xTabDisplayNum="3"
+                app:xTabMode="scrollable"
+                app:xTabIndicatorColor="#006EFD"
+                app:xTabIndicatorHeight="2dp"
+                app:xTabIndicatorWidth="80dp"
+                app:xTabSelectedTextColor="@color/blackBold"
+                app:xTabTextColor="#A0A4A8"
+                app:xTabTextSize="15sp"
+                app:xTabSelectedTextSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/LLAddressActProfilRS"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/VP_container_profil_rs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintTop_toBottomOf="@+id/XTabLayout"/>
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
