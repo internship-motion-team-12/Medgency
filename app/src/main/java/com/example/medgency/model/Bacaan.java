@@ -4,6 +4,7 @@ public class Bacaan {
     private String judul;
     private String publisher;
     private String url_profil;
+    private String publish_time;
 
     public Bacaan(String judul, String publisher) {
         this.judul = judul;
@@ -41,5 +42,13 @@ public class Bacaan {
 
     public void setUrl_profil(String url_profil) {
         this.url_profil = url_profil;
+    }
+
+    public String getPublish_time() {
+        return publish_time;
+    }
+
+    public void setPublish_time(String publish_time) {
+        this.publish_time = publish_time;
     }
 }

@@ -10,16 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ReadArticle"
+            android:label=""
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.MainActivity" />
+        </activity>
+        <activity
             android:name=".PilihJadwal"
             android:label="Rincian Pengobatan"
             android:parentActivityName=".VerifikasiPasien">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.VerifikasiPasien"/>
+                android:value="com.example.medgency.VerifikasiPasien" />
         </activity>
         <activity
             android:name=".VerifikasiPasien"
-            android:label="Verifikasi Pasien"></activity>
+            android:label="Verifikasi Pasien" />
         <activity
             android:name=".ProfilRS"
             android:parentActivityName=".SearchRS">

@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.medgency.R;
+import com.example.medgency.ReadArticle;
 import com.example.medgency.RoundedCornersTransformation;
 import com.example.medgency.model.Bacaan;
 import com.squareup.picasso.Picasso;
@@ -36,36 +38,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.BacaanViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomeAdapter.BacaanViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final HomeAdapter.BacaanViewHolder holder, final int position) {
         holder.TVJudulBacaan.setText(dataList.get(position).getJudul());
         holder.TVPublisher.setText(dataList.get(position).getPublisher());
         final Transformation transformation = new RoundedCornersTransformation(30, 0);
         Picasso.with(context).load(dataList.get(position).getUrl_profil()).transform(transformation).placeholder(R.drawable.placeholder).fit().into(holder.IVBacaan);
+        final String title = dataList.get(position).getJudul();
 
-        holder.TVJudulBacaan.setOnClickListener(new View.OnClickListener() {
+        holder.LLBacaanHomeRV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
-            }
-        });
-
-        holder.TVPublisher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*
-                Intent i = new Intent(context,OnBoard.class);
+                Intent i = new Intent(context, ReadArticle.class);
+                i.putExtra("judul",title);
                 context.startActivity(i);
-                */
-            }
-        });
-
-        holder.IVBacaan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*
-                Intent i = new Intent(context,OnBoard.class);
-                context.startActivity(i);
-                */
             }
         });
     }
@@ -78,11 +63,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.BacaanViewHold
     public class BacaanViewHolder extends RecyclerView.ViewHolder {
         private TextView TVJudulBacaan, TVPublisher;
         private ImageView IVBacaan;
+        private LinearLayout LLBacaanHomeRV;
         public BacaanViewHolder(@NonNull View itemView) {
             super(itemView);
             TVJudulBacaan = itemView.findViewById(R.id.TVJudulBacaan);
             TVPublisher = itemView.findViewById(R.id.TVPublisher);
             IVBacaan = itemView.findViewById(R.id.IVBacaan);
+            LLBacaanHomeRV = itemView.findViewById(R.id.LLBacaanHomeRV);
+
         }
     }
 }
