@@ -14,4 +14,14 @@
     <string name="Home">Home</string>
     <string name="JadwalSaya">Jadwal Saya</string>
     <string name="Profil">Profil</string>
+    <string name="PasienLama">Pasien Lama</string>
+    <string name="PasienBaru">Pasien Baru</string>
+    <string name="NomorRekamMedis">Nomor Rekam Medis</string>
+
+    <!-- Hint Edit Text-->
+    <string name="MasukanNamaLengkapSesuaiKTP"><font size="15">Masukan nama lengkap sesuai KTP</font></string>
+    <string name="MasukanNIK"><font size="15">Masukan Nomor Induk Kependudukan</font></string>
+    <string name="MasukanTTL"><font size="15">DD-MM-YY</font></string>
+    <string name="MasukanAlamatSesuaiKTP"><font size="15">Masukan alamat sesuai KTP</font></string>
+    <string name="MasukanNomorRekamMedis"><font size="15">Contoh : 09765644677</font></string>
 </resources>

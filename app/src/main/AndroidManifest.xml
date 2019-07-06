@@ -27,7 +27,12 @@
         </activity>
         <activity
             android:name=".VerifikasiPasien"
-            android:label="Verifikasi Pasien" />
+            android:parentActivityName=".ProfilRS"
+            android:label="Verifikasi Pasien" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.ProfilRS" />
+        </activity>
         <activity
             android:name=".ProfilRS"
             android:parentActivityName=".SearchRS">
