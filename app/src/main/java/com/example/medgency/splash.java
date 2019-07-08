@@ -26,7 +26,7 @@ public class splash extends AppCompatActivity {
             finish();
         }
         else {
-            Intent intent = new Intent(this, VerifikasiPasien.class);
+            Intent intent = new Intent(this, PilihJadwal.class);
             intent.putExtra("Status","Dont destroy");
             startActivity(intent);
             finish();

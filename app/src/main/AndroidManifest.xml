@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".TiketReservasi"></activity>
+        <activity android:name=".VerifikasiPasienLama" />
         <activity
             android:name=".ReadArticle"
             android:label=""
@@ -27,8 +29,8 @@
         </activity>
         <activity
             android:name=".VerifikasiPasien"
-            android:parentActivityName=".ProfilRS"
-            android:label="Verifikasi Pasien" >
+            android:label="Verifikasi Pasien"
+            android:parentActivityName=".ProfilRS">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.medgency.ProfilRS" />
