@@ -2,13 +2,13 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/CVRecyclerViewSearchRS"
     android:layout_width="match_parent"
-    android:layout_height="251dp"
+    android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
     android:layout_marginTop="20dp"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <!--android:layout_height="251dp"-->
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="251dp">
@@ -25,7 +25,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginStart="8dp"
             android:text="Nama rumah sakit"
-            android:textColor="@color/blackBold"
+            android:textColor="@color/Black100"
             android:textSize="14sp"
             android:lineHeight="19dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
             android:text="Jenis RS"
             android:textSize="12sp"
             android:lineHeight="16dp"
-            android:textColor="@color/blackThin"
+            android:textColor="@color/Black80"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TVNamaRS_RecyclerView"/>
 
@@ -65,7 +65,7 @@
                 android:text="Alamat"
                 android:textSize="12sp"
                 android:lineHeight="16dp"
-                android:textColor="@color/blackThin"
+                android:textColor="@color/Black80"
                 android:layout_gravity="center"/>
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>

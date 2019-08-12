@@ -11,14 +11,13 @@ import android.view.ViewGroup;
 import com.example.medgency.R;
 
 public class LayananFragment extends Fragment {
-    View view;
     public LayananFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_layanan, container, false);
+        View view = inflater.inflate(R.layout.fragment_layanan, container, false);
 
         return view;
     }

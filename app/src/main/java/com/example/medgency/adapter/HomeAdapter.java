@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.medgency.FungsiFungsi.DateFunction;
 import com.example.medgency.R;
-import com.example.medgency.ReadArticle;
-import com.example.medgency.RoundedCornersTransformation;
+import com.example.medgency.activity.ReadArticle;
+import com.example.medgency.activity.RoundedCornersTransformation;
 import com.example.medgency.model.Bacaan;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.BacaanViewHolder> {
     private ArrayList<Bacaan> dataList;
@@ -42,8 +47,28 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.BacaanViewHold
         holder.TVJudulBacaan.setText(dataList.get(position).getJudul());
         holder.TVPublisher.setText(dataList.get(position).getPublisher());
         final Transformation transformation = new RoundedCornersTransformation(30, 0);
-        Picasso.with(context).load(dataList.get(position).getUrl_profil()).transform(transformation).placeholder(R.drawable.placeholder).fit().into(holder.IVBacaan);
+        Picasso.with(context).load(dataList.get(position).getUrl_profil()).transform(transformation).placeholder(R.drawable.bacaan_preview_placeholder).fit().into(holder.IVBacaan);
         final String title = dataList.get(position).getJudul();
+
+        DateFunction dateFunction = new DateFunction();
+        Date date = Calendar.getInstance().getTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("HH:mm:ss");
+        String currentDate = simpleDateFormat.format(new Date());
+        String currentTime = simpleDateFormat1.format(new Date());
+        int TanggalSekarang = dateFunction.getTanggalFromDate(currentDate);
+        int BulanSekarang = dateFunction.ConvertMonthToInt(dateFunction.getBulanFromDate(currentDate));
+        int TahunSekarang = dateFunction.getTahunFromDate(currentDate);
+        int MenitSekarang = dateFunction.getMinuteFromTimeWithFormatHHmm(currentTime);
+        int JamSekarang = dateFunction.getHourFromTimeWithFormatHHmm(currentTime);
+
+        String PublishDate = dateFunction.ConvertDateFormatDDMMMMYYYYToDDMMYY(dataList.get(position).getPublish_time());
+        int TanggalPublish = dateFunction.getTanggalFromDate(PublishDate);
+        //int BulanPublish = dateFunction.ConvertMonthToInt(dateFunction.getBulanFromDate(PublishDate));
+        int BulanPublish = dateFunction.getMonthIntFromDateWithMonthString(dataList.get(position).getPublish_time());
+        Log.d("TAG","Bulan Publish : " + BulanPublish);
+        int TahunPublish = dateFunction.getTahunFromDate(PublishDate);
+        holder.TVPublishTime.setText(dateFunction.getDateDifferences(TanggalPublish,BulanPublish,TahunPublish,dataList.get(position).getMenit(),dataList.get(position).getJam(),TanggalSekarang, BulanSekarang,TahunSekarang,MenitSekarang,JamSekarang));
 
         holder.LLBacaanHomeRV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,16 +86,16 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.BacaanViewHold
     }
 
     public class BacaanViewHolder extends RecyclerView.ViewHolder {
-        private TextView TVJudulBacaan, TVPublisher;
+        private TextView TVJudulBacaan, TVPublisher, TVPublishTime;
         private ImageView IVBacaan;
         private LinearLayout LLBacaanHomeRV;
         public BacaanViewHolder(@NonNull View itemView) {
             super(itemView);
             TVJudulBacaan = itemView.findViewById(R.id.TVJudulBacaan);
             TVPublisher = itemView.findViewById(R.id.TVPublisher);
+            TVPublishTime = itemView.findViewById(R.id.TVPublishTime);
             IVBacaan = itemView.findViewById(R.id.IVBacaan);
             LLBacaanHomeRV = itemView.findViewById(R.id.LLBacaanHomeRV);
-
         }
     }
 }

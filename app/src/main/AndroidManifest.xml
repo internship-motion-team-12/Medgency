@@ -4,86 +4,116 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logosatu"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logosatu"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TiketReservasi"></activity>
-        <activity android:name=".VerifikasiPasienLama" />
         <activity
-            android:name=".ReadArticle"
+            android:name=".activity.TiketResrvasiLama"
             android:label=""
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activity.PilihJadwalLama">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.MainActivity" />
+                android:value="com.example.medgency.activity.PilihJadwalLama" />
         </activity>
         <activity
-            android:name=".PilihJadwal"
+            android:name=".activity.PilihJadwalLama"
+            android:label=""
+            android:parentActivityName=".activity.VerifikasiPasienLama">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.VerifikasiPasienLama" />
+        </activity>
+        <activity
+            android:name=".activity.TiketReservasi"
+            android:label=""
+            android:parentActivityName=".activity.PilihJadwal">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.PilihJadwal" />
+        </activity>
+        <activity
+            android:name=".activity.VerifikasiPasienLama"
+            android:label=""
+            android:parentActivityName=".activity.VerifikasiPasien">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.VerifikasiPasien" />
+        </activity>
+        <activity
+            android:name=".activity.ReadArticle"
+            android:label=""
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity.PilihJadwal"
             android:label="Rincian Pengobatan"
-            android:parentActivityName=".VerifikasiPasien">
+            android:parentActivityName=".activity.VerifikasiPasien">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.VerifikasiPasien" />
+                android:value="com.example.medgency.activity.VerifikasiPasien" />
         </activity>
         <activity
-            android:name=".VerifikasiPasien"
+            android:name=".activity.VerifikasiPasien"
             android:label="Verifikasi Pasien"
-            android:parentActivityName=".ProfilRS">
+            android:parentActivityName=".activity.SearchDokter">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.ProfilRS" />
+                android:value="com.example.medgency.activity.SearchDokter" />
         </activity>
         <activity
-            android:name=".ProfilRS"
-            android:parentActivityName=".SearchRS">
+            android:name=".activity.ProfilRS"
+            android:parentActivityName=".activity.SearchRS">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.SearchRS" />
+                android:value="com.example.medgency.activity.SearchRS" />
         </activity>
         <activity
-            android:name=".SearchRS"
+            android:name=".activity.SearchRS"
             android:label="Rumah Sakit"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.MainActivity" />
+                android:value="com.example.medgency.activity.MainActivity" />
         </activity>
         <activity
-            android:name=".SearchDokter"
+            android:name=".activity.SearchDokter"
             android:label="Dokter"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.MainActivity" />
+                android:value="com.example.medgency.activity.MainActivity" />
         </activity>
         <activity
-            android:name=".SignIn"
-            android:parentActivityName=".OnBoard">
+            android:name=".activity.SignIn"
+            android:parentActivityName=".activity.OnBoard">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.OnBoard" />
+                android:value="com.example.medgency.activity.OnBoard" />
         </activity>
         <activity
-            android:name=".SignUpEmail"
-            android:parentActivityName=".SignUp">
+            android:name=".activity.SignUpEmail"
+            android:parentActivityName=".activity.SignUp">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.SignUp" />
+                android:value="com.example.medgency.activity.SignUp" />
         </activity>
         <activity
-            android:name=".SignUp"
-            android:parentActivityName=".OnBoard">
+            android:name=".activity.SignUp"
+            android:parentActivityName=".activity.OnBoard">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.medgency.OnBoard" />
+                android:value="com.example.medgency.activity.OnBoard" />
         </activity>
         <activity
-            android:name=".OnBoard"
+            android:name=".activity.OnBoard"
             android:theme="@style/OnBoardTheme" />
         <activity
-            android:name=".splash"
+            android:name=".activity.splash"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -91,7 +121,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

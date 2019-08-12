@@ -11,7 +11,7 @@
         android:layout_marginTop="20dp"
         android:textSize="18dp"
         android:letterSpacing="0.015"
-        android:textColor="@color/blackBold"
+        android:textColor="@color/Black100"
         android:text="Pilih Jenis Pasien"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

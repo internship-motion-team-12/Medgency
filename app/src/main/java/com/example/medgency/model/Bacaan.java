@@ -5,6 +5,8 @@ public class Bacaan {
     private String publisher;
     private String url_profil;
     private String publish_time;
+    private int jam;
+    private int menit;
 
     public Bacaan(String judul, String publisher) {
         this.judul = judul;
@@ -50,5 +52,21 @@ public class Bacaan {
 
     public void setPublish_time(String publish_time) {
         this.publish_time = publish_time;
+    }
+
+    public int getJam() {
+        return jam;
+    }
+
+    public void setJam(int jam) {
+        this.jam = jam;
+    }
+
+    public int getMenit() {
+        return menit;
+    }
+
+    public void setMenit(int menit) {
+        this.menit = menit;
     }
 }

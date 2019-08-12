@@ -79,7 +79,7 @@
                     android:textSize="12sp"
                     android:layout_height="16dp"
                     android:lineHeight="16dp"
-                    android:textColor="@color/blackThin"
+                    android:textColor="@color/Black80"
                     android:text="Medgency official"/>
 
                 <View
@@ -97,7 +97,7 @@
                     android:textSize="12sp"
                     android:layout_height="16dp"
                     android:lineHeight="16dp"
-                    android:textColor="@color/blackThin"
+                    android:textColor="@color/Black80"
                     android:text="29 Juni 2019"/>
             </LinearLayout>
 

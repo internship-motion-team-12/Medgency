@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/TVNama"
+        android:id="@+id/TVNomorRekamMedis"
         android:layout_width="wrap_content"
         android:layout_height="21dp"
         android:text="Nama"
         android:textSize="15sp"
-        android:textColor="@color/blackBold"
+        android:textColor="@color/Black100"
         android:lineHeight="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -24,7 +24,7 @@
         android:hint="@string/MasukanNamaLengkapSesuaiKTP"
         android:textColorHint="#CACCCF"
         android:background="@drawable/bg_jenis_pasien"
-        app:layout_constraintTop_toBottomOf="@+id/TVNama" />
+        app:layout_constraintTop_toBottomOf="@+id/TVNomorRekamMedis" />
 
     <TextView
         android:id="@+id/TVPeringatanNama"
@@ -44,7 +44,7 @@
         android:text="NIK"
         android:layout_marginTop="16dp"
         android:textSize="15sp"
-        android:textColor="@color/blackBold"
+        android:textColor="@color/Black100"
         android:lineHeight="20dp"
         app:layout_constraintTop_toBottomOf="@+id/ETNama"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -75,24 +75,39 @@
         android:id="@+id/TVTL"
         android:layout_width="wrap_content"
         android:layout_height="21dp"
-        android:text="Tempat Tanggal Lahir"
+        android:text="Tanggal Lahir"
         android:layout_marginTop="16dp"
         android:textSize="15sp"
-        android:textColor="@color/blackBold"
+        android:textColor="@color/Black100"
         android:lineHeight="20dp"
         app:layout_constraintTop_toBottomOf="@+id/ETNIK"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
+    <RelativeLayout
         android:id="@+id/ETTTL"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:layout_marginTop="12dp"
         android:paddingLeft="12dp"
-        android:hint="@string/MasukanTTL"
-        android:textColorHint="#CACCCF"
         android:background="@drawable/bg_jenis_pasien"
-        app:layout_constraintTop_toBottomOf="@+id/TVTL" />
+        app:layout_constraintTop_toBottomOf="@+id/TVTL" >
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MasukanTTL"
+            android:textColor="#38000000"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MasukanTTL"
+            android:textColor="#000000"
+            android:visibility="gone"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/TVPeringatanTTL"
@@ -112,7 +127,7 @@
         android:text="Alamat"
         android:layout_marginTop="16dp"
         android:textSize="15sp"
-        android:textColor="@color/blackBold"
+        android:textColor="@color/Black100"
         android:lineHeight="20dp"
         app:layout_constraintTop_toBottomOf="@+id/ETTTL"
         app:layout_constraintStart_toStartOf="parent"/>

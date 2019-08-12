@@ -8,7 +8,7 @@
     android:paddingBottom="38dp"
     android:paddingRight="17dp"
     android:paddingLeft="17dp"
-    tools:context=".OnBoard">
+    tools:context=".activity.OnBoard">
 
     <TextView
         android:id="@+id/TVMedgency"
@@ -30,7 +30,7 @@
         android:textSize="14sp"
         android:layout_below="@+id/TVMedgency"
         android:lineHeight="19dp"
-        android:textColor="@color/blackThin"
+        android:textColor="@color/Black80"
         android:text="@string/app_desc"
         android:letterSpacing="0.015"
         android:gravity="center"/>
@@ -52,7 +52,7 @@
         <TextView
             android:id="@+id/TVSudahPunyaAkun"
             android:layout_width="wrap_content"
-            android:textColor="@color/blackThin"
+            android:textColor="@color/Black80"
             android:layout_height="match_parent"
             android:letterSpacing="0.015"
             android:lineHeight="19dp"

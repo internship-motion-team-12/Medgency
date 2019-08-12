@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TiketReservasi">
+    tools:context=".activity.TiketReservasi">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/ToolbarTiketReservasi"
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Nama RS"
+                tools:text="Nama RS"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -53,7 +53,7 @@
                 android:textSize="14sp"
                 android:lineHeight="19dp"
                 android:layout_below="@+id/TVNamaRS"
-                android:text="Medical Check Up"/>
+                tools:text="Medical Check Up"/>
             
             <TextView
                 android:id="@+id/HargaPelayanan"
@@ -61,7 +61,7 @@
                 android:layout_height="19dp"
                 android:layout_marginRight="12dp"
                 android:layout_below="@+id/TVNamaRS"
-                android:text="Rp. 1.000.000"
+                tools:text="Rp. 1.000.000"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="14dp"/>
 
@@ -90,7 +90,7 @@
                 android:layout_height="19dp"
                 android:layout_marginRight="12dp"
                 android:layout_below="@+id/HargaPelayanan"
-                android:text="Rp. 1.000.000"
+                tools:text="Rp. 1.000.000"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="14dp"/>
 
@@ -112,7 +112,7 @@
                 android:layout_height="19dp"
                 android:layout_marginRight="12dp"
                 android:layout_below="@+id/TanggalPelayanan"
-                android:text="Rp. 1.000.000"
+                tools:text="Rp. 1.000.000"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="14dp"/>
 

@@ -16,4 +16,10 @@
 
     </style>
 
+    <style name="TransparantToolbar" parent="Theme.AppCompat.Light">
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
 </resources>

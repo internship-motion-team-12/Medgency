@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Medgency</string>
-    <string name="app_desc">Medgency memberikan kemudahan membuat antrian di rumah sakit, klinik atau dokter favorit kalian.</string>
+    <string name="app_desc">Medgency memberikan kemudahan membuat antrian di rumah Pkit, klinik atau dokter favorit kalian.</string>
     <string name="NamaDepan">Nama Depan</string>
     <string name="NamaBelakang">Nama Belakang</string>
     <string name="JenisKelamin">Jenis Kelamin</string>
@@ -17,6 +17,7 @@
     <string name="PasienLama">Pasien Lama</string>
     <string name="PasienBaru">Pasien Baru</string>
     <string name="NomorRekamMedis">Nomor Rekam Medis</string>
+    <string name="RumahSakit">Rumah Sakit</string>
 
     <!-- Hint Edit Text-->
     <string name="MasukanNamaLengkapSesuaiKTP"><font size="15">Masukan nama lengkap sesuai KTP</font></string>
@@ -24,4 +25,31 @@
     <string name="MasukanTTL"><font size="15">DD-MM-YY</font></string>
     <string name="MasukanAlamatSesuaiKTP"><font size="15">Masukan alamat sesuai KTP</font></string>
     <string name="MasukanNomorRekamMedis"><font size="15">Contoh : 09765644677</font></string>
+
+
+    <string name="kontak">Kontak</string>
+    <string name="igd">IGD</string>
+    <string name="informasi">Informasi</string>
+    <string name="Email">Email</string>
+
+    <!--Digunakan di JAVA-->
+    <string name="NamaRS">NamaRS</string>
+    <string name="NamaDokter">NamaDokter</string>
+    <string name="JenisLayanan">JenisLayanan</string>
+    <string name="Tampungan">Tampungan</string>
+    <string name="PenyediaLayanan">PenyediaLayanan</string>
+    <string name="WaktuBerobat">WaktuBerobat</string>
+    <string name="Tanggal">Tanggal</string>
+    <string name="Dokter">Dokter</string>
+    <string name="Klinik">Klinik</string>
+    <string name="Ambulans">Ambulans</string>
+    <string name="Layanan">Layanan</string>
+    <string name="IdTicket">IdTicket</string>
+    <string name="DokterPraktek">Dokter Praktek</string>
+    <string name="TanggalLahirPasien">TanggalLahirPasien</string>
+    <string name="NamaPasien">NamaPasien</string>
+    <string name="TTLPasien">TTLPasien</string>
+    <string name="AlamatPasien">AlamatPasien</string>
+    <string name="NIKPasien">NIKPasien</string>
+    <string name="TelahMemilihTanggal">TelahMemilihTanggal</string>
 </resources>

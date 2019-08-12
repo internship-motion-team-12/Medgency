@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/LLBacaanHomeRV"
     android:layout_width="match_parent"
     android:layout_height="113dp"
@@ -17,9 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/blackBold"
+            android:textColor="@color/Black100"
             android:maxLines="2"
             android:lineHeight="19dp"
+            tools:text = "Judul Bacaan"
             android:layout_marginTop="24dp"/>
 
         <LinearLayout
@@ -33,7 +35,8 @@
                 android:textSize="12sp"
                 android:layout_height="16dp"
                 android:lineHeight="16dp"
-                android:textColor="@color/blackThin"/>
+                android:textColor="@color/Black80"
+                tools:text = "Detiik"/>
 
             <View
                 android:layout_width="5dp"
@@ -50,7 +53,8 @@
                 android:textSize="12sp"
                 android:layout_height="16dp"
                 android:lineHeight="16dp"
-                android:textColor="@color/blackThin"/>
+                tools:text = "Kemarin"
+                android:textColor="@color/Black80"/>
         </LinearLayout>
         <View
             android:id="@+id/view"
@@ -70,6 +74,7 @@
             android:layout_height="75dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/bg_foto_profil_bacaan"
+            tools:src="@drawable/bacaan_preview_placeholder"
             android:layout_alignParentRight="true"/>
 
         <View

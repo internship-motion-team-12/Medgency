@@ -2,7 +2,6 @@ package com.example.medgency.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.AdaptiveIconDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.example.medgency.ProfilRS;
+import com.example.medgency.activity.ProfilRS;
 import com.example.medgency.R;
 import com.example.medgency.model.Hospital;
 import com.squareup.picasso.Picasso;

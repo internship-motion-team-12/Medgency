@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="17dp"
     android:paddingRight="17dp"
-    tools:context=".SignUp">
+    tools:context=".activity.SignUp">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/ToolbarSignUp"
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="26dp"
         android:layout_below="@+id/PBSignUp"
-        android:textColor="@color/blackBold"
+        android:textColor="@color/Black100"
         android:layout_marginTop="25dp"
         android:textSize="24sp"
         android:layout_marginBottom="4dp"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/TVDaftarSignUp"
         android:layout_marginBottom="32dp"
-        android:textColor="@color/blackBold"
+        android:textColor="@color/Black100"
         android:text="Masukan biodata anda"
         android:textSize="16sp" />
 

@@ -19,7 +19,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.medgency.R;
-import com.example.medgency.SearchRS;
+import com.example.medgency.activity.SearchDokter;
+import com.example.medgency.activity.SearchRS;
 import com.example.medgency.adapter.HomeAdapter;
 import com.example.medgency.adapter.ViewPagerHomeAdapter;
 import com.example.medgency.model.Bacaan;
@@ -37,7 +38,7 @@ public class HomeFragment extends Fragment {
     Handler h = new Handler();
     RecyclerView recyclerView;
     TextView toolbar_text;
-    CardView cardView;
+    CardView CVRS, CVDokter;
     private int delay = 8000;
     int page = 0;
     private ViewPager viewPager;
@@ -54,11 +55,20 @@ public class HomeFragment extends Fragment {
         final Context context = getActivity();
         recyclerView = view.findViewById(R.id.RecyclerViewArticleHome);
 
-        cardView = view.findViewById(R.id.CVRumahSakit);
-        cardView.setOnClickListener(new View.OnClickListener() {
+        CVRS = view.findViewById(R.id.CVRumahSakit);
+        CVRS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SearchRS.class);
+            Intent intent = new Intent(getActivity(), SearchRS.class);
+            startActivity(intent);
+            }
+        });
+
+        CVDokter = view.findViewById(R.id.CVDokter);
+        CVDokter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SearchDokter.class);
                 startActivity(intent);
             }
         });
