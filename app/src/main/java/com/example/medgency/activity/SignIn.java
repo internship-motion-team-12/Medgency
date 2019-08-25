@@ -178,7 +178,7 @@ public class SignIn extends AppCompatActivity {
     }
 
     private Boolean isValidPassword(String password){
-        if (password.isEmpty() || password.length() <= 7 || !isStringContainNumber(password)){
+        if (password.isEmpty()){
             return false;
         }
         return true;

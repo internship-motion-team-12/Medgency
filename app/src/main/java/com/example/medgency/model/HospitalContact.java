@@ -1,7 +1,21 @@
 package com.example.medgency.model;
 
 public class HospitalContact {
-    public int IGD;
-    public int information;
-    public String email;
+    private String IGD;
+    private String information;
+    private String email;
+
+    public HospitalContact(){}
+
+    public String getIGD() {
+        return IGD;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

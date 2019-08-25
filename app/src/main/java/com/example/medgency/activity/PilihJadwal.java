@@ -51,7 +51,7 @@ public class PilihJadwal extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.ToolbarPilihJadwal);
         final Button BtnToTiketReservasi = findViewById(R.id.BtnToTiketReservasi);
         TextView toolbar_text = findViewById(R.id.toolbar_text);
-        toolbar_text.setText("Tiket Reservasi");
+        toolbar_text.setText("Pilih Jadwal");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -130,7 +130,7 @@ public class PilihJadwal extends AppCompatActivity {
                             reference1.child(getString(R.string.NamaDokter)).setValue(penyedia_layanan[0]);
                         }
 
-                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("JadwalDokterPraktek").child(hari).child(StringFunction.DeleteDotFromString(finalPenyedia_layanan));
+                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("JadwalDokterPraktek").child(hari).child(StringFunction.DeleteDotFromString(penyedia_layanan[0]));
                         reference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -141,9 +141,6 @@ public class PilihJadwal extends AppCompatActivity {
 
                                 RVPilihJadwal.setAdapter(waktuBerobatAdapter);
                                 String string = String.valueOf(dataList.size());
-                                //Log.d(TAG,dataList.get(0));
-                                //Log.d(TAG,dataList.get(1));
-                                //Log.d(TAG,dataList.get(2));
                             }
 
                             @Override

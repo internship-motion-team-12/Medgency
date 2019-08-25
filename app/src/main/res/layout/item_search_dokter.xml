@@ -29,6 +29,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="12dp"
             android:textSize="15sp"
+            android:ellipsize="end"
             android:lineHeight="20dp"
             android:textColor="@color/Black100"
             tools:text="Dr. Alexander"/>

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.medgency.R;
+import com.example.medgency.adapter.IkonJenisKelaminAdapter;
 import com.example.medgency.model.User;
 
 import java.util.regex.Matcher;
@@ -46,8 +49,6 @@ public class SignUp extends AppCompatActivity {
         ETNamDep = findViewById(R.id.ETNamaDepan);
         ETNamBel = findViewById(R.id.ETNamaBelakang);
         JnsKelamin = getString(R.string.BlmDiSet);
-        IVPria = findViewById(R.id.IVPria);
-        IVWanita = findViewById(R.id.IVWanita);
         WarningDepan = findViewById(R.id.WarningDepan);
         LogoWarningDepan = findViewById(R.id.LogoWarningDepan);
         WarningBelakang = findViewById(R.id.WarningBelakang);
@@ -93,10 +94,13 @@ public class SignUp extends AppCompatActivity {
         };
 
         mButton.setOnClickListener(listener);
-        IVPria.setOnClickListener(listenerIVPria);
-        IVWanita.setOnClickListener(listenerIVWanita);
         ETNamDep.addTextChangedListener(TWNamDep);
         ETNamBel.addTextChangedListener(TWNamBel);
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(SignUp.this,LinearLayoutManager.HORIZONTAL,false));
+        IkonJenisKelaminAdapter adapter = new IkonJenisKelaminAdapter(this);
+        recyclerView.setAdapter(adapter);
     }
 
     private void MakeWarningToast() {

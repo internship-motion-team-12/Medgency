@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="100dp"
-    android:background="@drawable/bg_pop_up_specialist"
-    android:layout_gravity="bottom">
+    android:background="@drawable/bg_pop_up_specialist">
 
     <TextView
         android:id="@+id/TVSpesialis"
@@ -22,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
     
     <ImageView
-        android:id="@+id/btn_close_dialog"
+        android:id="@+id/btn_dismiss"
         android:layout_width="14dp"
         android:layout_height="14dp"
         android:src="@drawable/btn_close_dialog"
@@ -44,6 +43,7 @@
         android:layout_marginEnd="16dp">
 
         <RelativeLayout
+            android:id="@+id/RLSpecialistUmum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -66,6 +66,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/RLSpecialistAnak"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -87,6 +88,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/RLSpecialistGigi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -108,6 +110,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/RLSpecialistMata"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -142,6 +145,7 @@
         android:layout_marginEnd="16dp">
 
         <RelativeLayout
+            android:id="@+id/RLSpecialistKandungan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -164,6 +168,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/RLSpecialistTulang"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -185,6 +190,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/RLSpecialistOtak"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -206,6 +212,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/RLSpecialistTelinga"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">

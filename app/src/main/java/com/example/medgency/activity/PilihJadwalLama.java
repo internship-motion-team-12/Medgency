@@ -119,11 +119,11 @@ public class PilihJadwalLama extends AppCompatActivity {
                             reference1.child(getString(R.string.NamaDokter)).setValue(penyedia_layanan[0]);
                         }
 
-                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("JadwalDokterPraktek").child(hari).child(StringFunction.DeleteDotFromString(finalPenyedia_layanan));
+                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("JadwalLayananRS").child(StringFunction.DeleteDotFromString(finalPenyedia_layanan)).child(hari);
                         reference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                ArrayList<String> dataList = StringFunction.UraiWaktuBerobat(dataSnapshot.getValue().toString());
+                                ArrayList<String> dataList = StringFunction.UraiWaktuBerobat("08.00-09.30|10.00-12.00|14.00-16.00");
                                 RecyclerView RVPilihJadwal = findViewById(R.id.RVPilihJadwal);
                                 RVPilihJadwal.setLayoutManager(new GridLayoutManager(PilihJadwalLama.this, 3));
                                 WaktuBerobatAdapter waktuBerobatAdapter = new WaktuBerobatAdapter(getApplicationContext(),dataList);
@@ -162,7 +162,7 @@ public class PilihJadwalLama extends AppCompatActivity {
                         final String JenisLayanan = dataSnapshot.child(getString(R.string.JenisLayanan)).getValue().toString();
                         goToTicketReservation.putExtra(getString(R.string.JenisLayanan),JenisLayanan);
                         if (JenisLayanan.equals(getString(R.string.RumahSakit))){
-                            goToTicketReservation.putExtra(getString(R.string.PenyediaLayanan),dataSnapshot.child(getString(R.string.NamaRS)).getValue().toString());
+                            goToTicketReservation.putExtra(getString(R.string.PenyediaLayanan),dataSnapshot.child("NamaDokter").getValue().toString());
                             goToTicketReservation.putExtra(getString(R.string.WaktuBerobat),dataSnapshot.child(getString(R.string.WaktuBerobat)).getValue().toString());
                             goToTicketReservation.putExtra(getString(R.string.Tanggal),dataSnapshot.child(getString(R.string.Tanggal)).getValue().toString());
                             goToTicketReservation.putExtra(getString(R.string.Layanan),dataSnapshot.child(getString(R.string.Layanan)).getValue().toString());

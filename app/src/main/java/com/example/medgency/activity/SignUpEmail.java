@@ -117,7 +117,7 @@ public class SignUpEmail extends AppCompatActivity {
         i.putExtra("Status","Destroy");
 
         String user_id = StringFunction.ConvertEmailToID(user.getEmail());
-        Toast.makeText(getApplicationContext(),user_id,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),user_id,Toast.LENGTH_LONG).show();
 
         // menyimpan data kepada local storage (hand phone)
         SharedPreferences sharedPreferences = getSharedPreferences("id", MODE_PRIVATE);

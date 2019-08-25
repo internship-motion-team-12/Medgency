@@ -27,7 +27,9 @@
             android:layout_marginTop="9dp"
             android:textSize="18sp"
             android:textColor="@color/black"
-            android:lineHeight="25dp"/>
+            android:lineHeight="25dp"
+            android:ellipsize="end"
+            android:maxLines="1"/>
         
         <ImageView
             android:id="@+id/IVCalendar"

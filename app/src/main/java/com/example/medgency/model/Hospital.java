@@ -9,13 +9,7 @@ public class Hospital {
     private HospitalContact mHospitalContact;
     private String url_profil;
     private String url_alamat;
-
-    public Hospital(String nama, String shortAddress, String hospitalType, String url_profil) {
-        this.nama = nama;
-        ShortAddress = shortAddress;
-        HospitalType = hospitalType;
-        this.url_profil = url_profil;
-    }
+    private String RSLainnya;
 
     public Hospital() {
     }
@@ -82,5 +76,25 @@ public class Hospital {
 
     public void setUrl_alamat(String url_alamat) {
         this.url_alamat = url_alamat;
+    }
+
+    public String getIGD() {
+        return mHospitalContact.getIGD();
+    }
+
+    public String getInformation() {
+        return mHospitalContact.getInformation();
+    }
+
+    public String getEmail() {
+        return mHospitalContact.getEmail();
+    }
+
+    public String getRSLainnya() {
+        return RSLainnya;
+    }
+
+    public void setRSLainnya(String RSLainnya) {
+        this.RSLainnya = RSLainnya;
     }
 }

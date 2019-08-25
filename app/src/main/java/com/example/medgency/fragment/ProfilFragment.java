@@ -1,7 +1,9 @@
 package com.example.medgency.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
@@ -37,15 +39,19 @@ public class ProfilFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
+        final Context context = getActivity();
         getUsernameLocal();
         RelativeLayout RLSignOut = view.findViewById(R.id.RLSignOut);
         final TextView TVNamaUser = view.findViewById(R.id.TVNamaUser);
         TextView TVToolbarProfil = view.findViewById(R.id.TVToolbarProfil);
 
+        Typeface customfont=Typeface.createFromAsset(context.getAssets(),"font/NunitoSans-Bold.ttf");
+
         Toolbar ToolbarProfil = view.findViewById(R.id.ToolbarProfil);
         ((AppCompatActivity)getActivity()).setSupportActionBar(ToolbarProfil);
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayShowTitleEnabled(false);
         TVToolbarProfil.setText("Profil");
+        TVToolbarProfil.setTypeface(customfont);
 
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users").child(email_key_new).child("Nama Depan");
@@ -53,7 +59,6 @@ public class ProfilFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 final String FrontName = dataSnapshot.getValue().toString();
-                Log.d(TAG,FrontName);
 
                 DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference().child("users").child(email_key_new).child("Nama Belakang");
                 reference1.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -61,7 +66,6 @@ public class ProfilFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         String BackName = dataSnapshot.getValue().toString();
                         String username = FrontName + " " + BackName;
-                        Log.d("USERNAME",username);
                         TVNamaUser.setText(username);
                     }
 
@@ -90,6 +94,7 @@ public class ProfilFragment extends Fragment {
                 //menuju On Board Act
                 Intent intent = new Intent(getActivity(), OnBoard.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
         return view;

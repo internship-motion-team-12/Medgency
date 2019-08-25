@@ -121,33 +121,20 @@
         android:layout_marginBottom="16dp"
         android:text="Jenis Kelamin" />
 
-    <LinearLayout
-        android:id="@+id/LLSignUp"
-        android:layout_width="136dp"
-        android:layout_height="60dp"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="174dp"
+        android:layout_height="104dp"
         android:layout_marginBottom="62dp"
-        android:layout_below="@+id/TVJenisKelamin">
-        <ImageView
-            android:id="@+id/IVPria"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginRight="16dp"
-            android:background="#808080" />
-
-        <ImageView
-            android:id="@+id/IVWanita"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="#808080"/>
-    </LinearLayout>
+        android:layout_below="@+id/TVJenisKelamin" />
 
     <Button
         android:id="@+id/ButtonSignUp"
         android:layout_width="match_parent"
         android:layout_height="47dp"
         android:textAllCaps="false"
-        android:layout_below="@+id/LLSignUp"
-        android:background="@drawable/unclickable_button_bg"
+        android:layout_below="@+id/recyclerView"
+        android:background="@drawable/clikable_button_bg"
         android:text="Selanjutnya"
         android:textSize="18sp"
         android:textColor="@color/white"/>

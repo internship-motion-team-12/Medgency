@@ -2,9 +2,11 @@ package com.example.medgency.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +17,22 @@ import android.widget.TextView;
 import com.example.medgency.activity.ProfilRS;
 import com.example.medgency.R;
 import com.example.medgency.model.Hospital;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class SearchRSActAdapter extends RecyclerView.Adapter<SearchRSActAdapter.HospitalViewHolder> {
     private ArrayList<Hospital> dataList;
     private LayoutInflater mInflater;
     private Context context;
     //private ItemClickListener mClickListener;
+
+    String email_key = "";
+    String email_key_new = "";
 
     public SearchRSActAdapter (Context context, ArrayList<Hospital> dataList){
         this.context = context;
@@ -51,8 +60,11 @@ public class SearchRSActAdapter extends RecyclerView.Adapter<SearchRSActAdapter.
             @Override
             public void onClick(View v) {
                 Intent gotoProfilRS = new Intent(context, ProfilRS.class);
-                gotoProfilRS.putExtra("nama",nama_rs);
-                gotoProfilRS.putExtra("url_map",url_map);
+                gotoProfilRS.putExtra(context.getString(R.string.NamaRS),nama_rs);
+                setSharedPreferenceLocal(context.getString(R.string.NamaRS),nama_rs);
+                getUsernameLocal();
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Tampungan").child("users").child(email_key_new).child(context.getString(R.string.NamaRS));
+                reference.setValue(nama_rs);
                 context.startActivity(gotoProfilRS);
             }
         });
@@ -75,5 +87,17 @@ public class SearchRSActAdapter extends RecyclerView.Adapter<SearchRSActAdapter.
             IVPhoto_profile_RS = itemView.findViewById(R.id.IVPhoto_profile_RS);
             CVRecyclerViewSearchRS = itemView.findViewById(R.id.CVRecyclerViewSearchRS);
         }
+    }
+
+    private void setSharedPreferenceLocal(String key, String value){
+        SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.Tampungan),MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key,value);
+        editor.apply();
+    }
+
+    private void getUsernameLocal(){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("id", MODE_PRIVATE);
+        email_key_new = sharedPreferences.getString(email_key,"");
     }
 }

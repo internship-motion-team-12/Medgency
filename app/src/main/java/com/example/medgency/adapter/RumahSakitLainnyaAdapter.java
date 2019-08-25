@@ -40,13 +40,14 @@ public class RumahSakitLainnyaAdapter extends RecyclerView.Adapter<RumahSakitLai
         holder.CVRecyclerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, VerifikasiPasien.class);
-                context.startActivity(intent);
+                //Intent intent = new Intent(context, VerifikasiPasien.class);
+                //context.startActivity(intent);
             }
         });
         Picasso.with(context).load(dataList.get(i).getUrl_profil()).into(holder.IVPhoto_profile_RS);
         holder.TVNamaRS_RecyclerView.setText(dataList.get(i).getNama());
         holder.TVJenisRS.setText(dataList.get(i).getHospitalType());
+        holder.TVAddress.setText(dataList.get(i).getShortAddress());
     }
 
     @Override
@@ -57,7 +58,7 @@ public class RumahSakitLainnyaAdapter extends RecyclerView.Adapter<RumahSakitLai
     public class HospitalViewHolder extends RecyclerView.ViewHolder {
         CardView CVRecyclerView;
         ImageView IVPhoto_profile_RS;
-        TextView TVNamaRS_RecyclerView, TVJenisRS ;
+        TextView TVNamaRS_RecyclerView, TVJenisRS, TVAddress ;
 
         public HospitalViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +66,7 @@ public class RumahSakitLainnyaAdapter extends RecyclerView.Adapter<RumahSakitLai
             IVPhoto_profile_RS = itemView.findViewById(R.id.IVPhoto_profile_RS);
             TVNamaRS_RecyclerView = itemView.findViewById(R.id.TVNamaRS_RecyclerView);
             TVJenisRS = itemView.findViewById(R.id.TVJenisRS);
+            TVAddress = itemView.findViewById(R.id.TVAddress);
         }
     }
 }

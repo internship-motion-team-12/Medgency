@@ -200,7 +200,7 @@ public class DateFunction {
 
     public String getDateDifferences(int TanggalPublish, int BulanPublish, int TahunPublish, int MenitPublish, int JamPublish, int TanggalSekarang, int BulanSekarang, int TahunSekarang, int MenitSekarang, int JamSekarang){
         if (TanggalPublish == TanggalSekarang && BulanPublish == BulanSekarang && TahunPublish == TahunSekarang){ // jika tanggalnya sama
-            Log.d("TAG","IF PERTAMA");
+
             if (MenitPublish == MenitSekarang && JamPublish == JamSekarang){ //jika waktunya sama
                 return "Beberapa detik yang lalu";
             }
@@ -234,7 +234,7 @@ public class DateFunction {
             }
         }
         else if (BulanPublish == BulanSekarang && TahunPublish == TahunSekarang) { //jika bulan dan tahun sama tetapi tangggalnya berbeda
-            Log.d("TAG","IF KEDUA");
+
             int DateDifferences = TanggalSekarang - TanggalPublish;
             if (DateDifferences == 1){
                 return "Kemarin";
@@ -259,10 +259,6 @@ public class DateFunction {
             }
         }
         else {
-            Log.d("TAG","IF KETIGA");
-            Log.d("TAG",TanggalPublish+"");
-            Log.d("TAG",BulanPublish+"");
-            Log.d("TAG",TahunPublish+"");
             return TanggalPublish + " " +BulanPublish + " " + TahunPublish;
         }
     }

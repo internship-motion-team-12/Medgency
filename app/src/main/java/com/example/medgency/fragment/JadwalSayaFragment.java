@@ -2,6 +2,7 @@ package com.example.medgency.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -48,6 +49,7 @@ public class JadwalSayaFragment extends Fragment {
 
         getUsernameLocal();
         final RecyclerView recyclerView = view.findViewById(R.id.RecyclerViewListJadwal);
+        Typeface customfont=Typeface.createFromAsset(context.getAssets(),"font/NunitoSans-Bold.ttf");
 
         Toolbar toolbar = view.findViewById(R.id.ToolbarJadwalSaya);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
@@ -55,6 +57,7 @@ public class JadwalSayaFragment extends Fragment {
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
         TextView TVToolbar = view.findViewById(R.id.TVToolbar);
         TVToolbar.setText(getString(R.string.JadwalSaya));
+        TVToolbar.setTypeface(customfont);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Tiket").child(email_key_new);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {

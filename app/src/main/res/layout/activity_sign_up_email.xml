@@ -156,7 +156,7 @@
         android:layout_height="47dp"
         android:textAllCaps="false"
         android:layout_below="@+id/WarningPassword"
-        android:background="@drawable/unclickable_button_bg"
+        android:background="@drawable/clikable_button_bg"
         android:textSize="18sp"
         android:text="Daftar"
         android:textColor="@color/white"/>

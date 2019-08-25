@@ -11,7 +11,6 @@
         android:id="@+id/ToolbarLogin"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginLeft="17dp"
         android:elevation="0dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
@@ -152,7 +151,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginLeft="17dp"
         android:layout_below="@+id/CLLogin"
-        android:background="@drawable/unclickable_button_bg"
+        android:background="@drawable/clikable_button_bg"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@color/white"

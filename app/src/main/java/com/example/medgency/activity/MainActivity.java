@@ -11,12 +11,14 @@ import com.example.medgency.R;
 import com.example.medgency.fragment.HomeFragment;
 import com.example.medgency.fragment.JadwalSayaFragment;
 import com.example.medgency.fragment.ProfilFragment;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         // kita set default nya Home Fragment
         loadFragment(new HomeFragment());

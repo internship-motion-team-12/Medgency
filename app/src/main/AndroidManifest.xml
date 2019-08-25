@@ -10,6 +10,100 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.Ambulance"
+            android:label=""
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity.Klinik"
+            android:label=""
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.MainActivity" />
+        </activity>
+        <activity android:name=".activity.PilihJadwalLamaFPF" />
+        <activity
+            android:name=".activity.VerifikasiPasienLamaFPF"
+            android:label=""
+            android:parentActivityName=".activity.VerifikasiPasienFromProfilRSFragment" />
+        <activity
+            android:name=".activity.PilihDiagnosisPB"
+            android:label=""
+            android:parentActivityName=".activity.PilihJadwalPBFPF">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.PilihJadwalPBFPF" />
+        </activity>
+        <activity
+            android:name=".activity.PilihJadwalPBFPF"
+            android:label=""
+            android:parentActivityName=".activity.VerifikasiPasienFromProfilRSFragment">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.VerifikasiPasienFromProfilRSFragment" />
+        </activity>
+        <activity android:name=".activity.PilihJadwalLamaFLF" />
+        <activity
+            android:name=".activity.VerifikasiPasienLamaFLF"
+            android:label=""
+            android:parentActivityName=".activity.VerifikasiPasienFromLayananFragment">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.VerifikasiPasienFromLayananFragment" />
+        </activity>
+        <activity
+            android:name=".activity.TicketReservationPBFLF"
+            android:label=""
+            android:parentActivityName=".activity.PilihJadwalPBFLF">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.PilihJadwalPBFLF" />
+        </activity>
+        <activity
+            android:name=".activity.PilihJadwalPBFLF"
+            android:label=""
+            android:parentActivityName=".activity.VerifikasiPasienFromLayananFragment">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.VerifikasiPasienFromLayananFragment" />
+        </activity>
+        <activity
+            android:name=".activity.VerifikasiPasienFromProfilRSFragment"
+            android:label=""
+            android:parentActivityName=".activity.ProfilRS">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.ProfilRS" />
+        </activity>
+        <activity
+            android:name=".activity.VerifikasiPasienFromLayananFragment"
+            android:label=""
+            android:parentActivityName=".activity.ProfilRS">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.ProfilRS" />
+        </activity>
+        <activity
+            android:name=".activity.Profil"
+            android:label=""
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity.TiketReservasiFromJadwalSaya"
+            android:label=""
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.medgency.activity.MainActivity" />
+        </activity>
+        <activity
             android:name=".activity.TiketResrvasiLama"
             android:label=""
             android:parentActivityName=".activity.PilihJadwalLama">

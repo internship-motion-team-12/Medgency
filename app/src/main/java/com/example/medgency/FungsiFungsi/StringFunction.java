@@ -55,4 +55,25 @@ public class StringFunction {
         }
         return dataList;
     }
+
+    public static ArrayList<String> ParseOtherHospital(String OtherHospital){
+        ArrayList<String> dataList = new ArrayList<>();
+        int i = 0;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while (i < OtherHospital.length()){
+            if (OtherHospital.charAt(i) != '|'){
+                stringBuilder.append(OtherHospital.charAt(i));
+                if (i == OtherHospital.length()-1){
+                    dataList.add(stringBuilder.toString());
+                }
+            }
+            else{
+                dataList.add(stringBuilder.toString());
+                stringBuilder = new StringBuilder();
+            }
+            i++;
+        }
+        return dataList;
+    }
 }

@@ -127,7 +127,7 @@
                 android:background="@drawable/bg_jenis_pasien"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name"
+                android:hint="Contoh:Kepala pusing dan mual mual"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TVDiagnosis" />
         </android.support.constraint.ConstraintLayout>

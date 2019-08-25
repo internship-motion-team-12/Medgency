@@ -2,6 +2,7 @@ package com.example.medgency.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -17,8 +18,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.medgency.R;
+import com.example.medgency.activity.Ambulance;
+import com.example.medgency.activity.Klinik;
 import com.example.medgency.activity.SearchDokter;
 import com.example.medgency.activity.SearchRS;
 import com.example.medgency.adapter.HomeAdapter;
@@ -39,6 +43,8 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     TextView toolbar_text;
     CardView CVRS, CVDokter;
+    CardView CVAmbulans;
+    CardView CVKlinik;
     private int delay = 8000;
     int page = 0;
     private ViewPager viewPager;
@@ -55,6 +61,30 @@ public class HomeFragment extends Fragment {
         final Context context = getActivity();
         recyclerView = view.findViewById(R.id.RecyclerViewArticleHome);
 
+        Typeface customfont=Typeface.createFromAsset(context.getAssets(),"font/NunitoSans-Regular.ttf");
+        Typeface customfontBold=Typeface.createFromAsset(context.getAssets(),"font/NunitoSans-Bold.ttf");
+        TextView TVRumahSakit = view.findViewById(R.id.TVRumahSakit);;
+        TextView TVDescRS = view.findViewById(R.id.TVDescRS);
+        TextView TVKlinik = view.findViewById(R.id.TVKlinik);;
+        TextView TVDescKlinik = view.findViewById(R.id.TVDescKlinik);;
+        TextView TVDokter = view.findViewById(R.id.TVDokter);;
+        TextView TVDescDokter = view.findViewById(R.id.TVDescDokter);;
+        TextView TVAmbulans = view.findViewById(R.id.TVAmbulans);;
+        TextView TVDescAmbulans = view.findViewById(R.id.TVDescAmbulans);;
+        TextView TVBacaanMenarikHome = view.findViewById(R.id.TVBacaanMenarikHome);;
+        TextView TVLihatSemuaHome = view.findViewById(R.id.TVLihatSemuaHome);;
+
+        TVRumahSakit.setTypeface(customfontBold);
+        TVDescRS.setTypeface(customfont);
+        TVKlinik.setTypeface(customfontBold);
+        TVDescKlinik.setTypeface(customfont);
+        TVDokter.setTypeface(customfontBold);
+        TVDescDokter.setTypeface(customfont);
+        TVAmbulans.setTypeface(customfontBold);
+        TVDescAmbulans.setTypeface(customfont);
+        TVBacaanMenarikHome.setTypeface(customfontBold);
+        TVLihatSemuaHome.setTypeface(customfont);
+
         CVRS = view.findViewById(R.id.CVRumahSakit);
         CVRS.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +100,26 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SearchDokter.class);
                 startActivity(intent);
+            }
+        });
+
+        CVKlinik = view.findViewById(R.id.CVKlinik);
+        CVKlinik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Log.d("TAGAR","COME HERE");
+                //Toast.makeText(context,"COME HERE",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(), Klinik.class);
+                context.startActivity(intent);
+            }
+        });
+
+        CVAmbulans = view.findViewById(R.id.CVAmbulans);
+        CVAmbulans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Ambulance.class);
+                context.startActivity(intent);
             }
         });
 
@@ -138,6 +188,7 @@ public class HomeFragment extends Fragment {
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayShowTitleEnabled(false);
         toolbar_text = view.findViewById(R.id.toolbar_text);
         toolbar_text.setText("Medgency");
+        toolbar_text.setTypeface(customfontBold);
         return view;
     }
 }
